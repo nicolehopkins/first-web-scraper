@@ -4,16 +4,16 @@ const url = 'https://www.reddit.com';
 
 puppeteer
   .launch()
-  .then((browser) => {
+  .then(browser => {
     return browser.newPage();
   })
-  .then((page) => {
+  .then(page => {
     return page.goto(url).then(() => {
-        return page.content();
-      });
+      return page.content();
+    });
   })
   .then(html => {
-    $('h2', html).each(() => {
+    $('h2', html).each(function () {
       console.log($(this).text());
     });
   })
